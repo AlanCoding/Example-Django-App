@@ -40,6 +40,12 @@ CREATE DATABASE myproject;
 CREATE USER myprojectuser WITH PASSWORD 'password';
 ```
 
+## Single Page Example
+
+Useful for understanding what Django does. Found at
+
+https://www.safaribooksonline.com/library/view/lightweight-django/9781491946275/ch01.html
+
 # TYI 2015 projects
 
 Class projects:
@@ -53,5 +59,34 @@ Class projects:
 
 Alan's version of it:
 
- - Github: http://www.ac4.xyz/
- - hosted: 
+ - Github: 
+ - hosted: http://www.ac4.xyz/
+
+# Giant Shotgun of Concepts
+
+Relational, structured, databases and links inside of it.
+Database contains tables, which contain rows and columns.
+Some columns may contain a reference to point to other rows, either
+in the same table or in a different table. Relationships:
+
+ - ForeignKey, also acts as a de-facto one-to-many
+ - Many-to-many relationships, "fake" it with an "through" table that
+   uses ForeignKeys
+
+ORM - python library that acts as intermediary to the database
+
+CRUD
+
+Data-interchange formats
+
+ - JSON
+ - YAML
+ - XML
+
+REST APIs
+
+ - django rest framework
+
+Ports
+
+
