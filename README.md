@@ -19,7 +19,8 @@ django-admin startproject demo
 django-admin startapp hiworld
 ```
 
-Alternatively, after you have started the project, you can run these
+You might do better to just follow the Django [getting started](https://www.djangoproject.com/start/)
+guide. Alternatively, after you have started the project, you can run these
 things with `python manage.py ....`.
 
 ```bash
@@ -89,4 +90,10 @@ REST APIs
 
 Ports
 
+Deployment
+ example: https://github.com/technivore/ansible-django
 
+# To Do, in progress
+
+ - demo of a CI/CD process with ORM access as homework
+ - deployment of a Django project to the public cloud
