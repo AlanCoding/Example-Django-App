@@ -1,7 +1,8 @@
 import sys
 
-
 from django.conf import settings
+from django.conf.urls import url
+from django.http import HttpResponse
 
 
 settings.configure(
@@ -16,16 +17,18 @@ settings.configure(
 )
 
 
-from django.conf.urls import url
-from django.http import HttpResponse
-
-
 def index(request):
     return HttpResponse('Hello World')
 
 
+def echo(request, val):
+    print val
+    return HttpResponse('Your URL contained: ' + str(val))
+
+
 urlpatterns = (
     url(r'^$', index),
+    url(r'^(?P<val>[a-z]+)/$', echo),
 )
 
 
