@@ -90,3 +90,6 @@ ENV/
 
 # SQLite database files
 *.sqlite3
+
+# AWS key pair files
+*.pem

@@ -19,4 +19,7 @@ class Member(models.Model):
         ),
         max_length=1
     )
-    band = models.ForeignKey("Band")
+    band = models.ForeignKey(
+        "Band",
+        related_name='members'
+    )
