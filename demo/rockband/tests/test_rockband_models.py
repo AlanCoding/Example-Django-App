@@ -23,3 +23,8 @@ def test_annotate_num_members():
     print '\n'.join([str([band.member_count, band.name]) for band in qs.all()])
     assert False
 
+@pytest.mark.django_db
+def test_aggregate_members():
+    band = Band.objects.get(name='Rock Sugar')
+    assert band.members.count() == 2
+
