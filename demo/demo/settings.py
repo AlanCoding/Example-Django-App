@@ -34,6 +34,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'demo', # my default app
     'rockband', # an addon app I created
+    'movies',
     'django.contrib.admin', # special administration pages from Django
     'django.contrib.auth', # user authentication
     'django.contrib.contenttypes', # these get weird

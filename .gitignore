@@ -93,3 +93,5 @@ ENV/
 
 # AWS key pair files
 *.pem
+
+data/
