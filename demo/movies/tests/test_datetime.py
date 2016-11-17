@@ -19,4 +19,6 @@ def test_formatted_time():
         float(raw_time_str)).strftime("%Y-%m-%d %H:%M")
     rating = Rating(timestamp=dt)
     rating.save()
+    print ' timestamp ' + str(rating.timestamp)
+    assert False
     assert rating.timestamp is not None

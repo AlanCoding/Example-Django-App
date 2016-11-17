@@ -29,6 +29,7 @@ urlpatterns = [
     url(r'^exception/$', rocking_views.raise_exception),
     url(r'^bands/(\d+)/$', rocking_views.band_detail, name='band-detail'),
     # url(r'^bands/search/$', rocking_views.band_search, name='band-search'),
+    # url(r'$mv/', mo)
 ]
 
 # For the debug toolbar
