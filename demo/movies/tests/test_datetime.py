@@ -1,4 +1,5 @@
 import pytest
+from datetime import datetime
 from movies.models import Rating
 
 raw_time = 878887116
@@ -13,6 +14,9 @@ def test_raw_time():
 
 @pytest.mark.django_db
 def test_formatted_time():
-    rating = Rating(timestamp=raw_time)
+    # From Josiah
+    dt = datetime.fromtimestamp(
+        float(raw_time_str)).strftime("%Y-%m-%d %H:%M")
+    rating = Rating(timestamp=dt)
     rating.save()
     assert rating.timestamp is not None
