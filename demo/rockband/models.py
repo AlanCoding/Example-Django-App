@@ -1,12 +1,18 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.db.models import Count, Avg
 
 # Create your models here.
 class Band(models.Model):
     """A model of a rock band."""
     name = models.CharField(max_length=200)
     can_rock = models.BooleanField(default=True)
+
+    @property
+    def average_member_age(self):
+        agg_qs = self.members.aggregate(average_age=Avg('age'))
+        return agg_qs['average_age']
 
 
 class Member(models.Model):
@@ -22,4 +28,7 @@ class Member(models.Model):
     band = models.ForeignKey(
         "Band",
         related_name='members'
+    )
+    age = models.IntegerField(
+        default=24
     )

@@ -31,4 +31,9 @@ class Migration(migrations.Migration):
                 ('band', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='rockband.Band')),
             ],
         ),
+        migrations.AddField(
+            model_name='member',
+            name='age',
+            field=models.IntegerField(default=24),
+        ),
     ]
