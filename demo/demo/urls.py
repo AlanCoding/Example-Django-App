@@ -19,16 +19,13 @@ from django.contrib import admin
 from django.views.generic import TemplateView
 import debug_toolbar
 
-from rockband import views as rocking_views
+from rockband import rocking_urls
 
 urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name="index.html")),
     url(r'^admin/', admin.site.urls),
     # Rock band urls
-    url(r'^bands/$', rocking_views.band_listing, name='band-list'),
-    url(r'^exception/$', rocking_views.raise_exception),
-    url(r'^bands/(\d+)/$', rocking_views.band_detail, name='band-detail'),
-    # url(r'^bands/search/$', rocking_views.band_search, name='band-search'),
+    url(r'^bands/', include(rocking_urls)),
     # url(r'$mv/', mo)
 ]
 

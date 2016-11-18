@@ -11,6 +11,11 @@
         {% if band.can_rock %}<p>This band can rock!</p>{% endif %}
       </li>
     {% endfor %}
+    {% if is_paginated %}
+    <br />
+    Pagination - There are more bands on other pages!
+    <br />
+    {% endif %}
     </ul>
   </body>
 </html>
