@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.urls import reverse
 from django.db.models import Count, Avg
 
 # Create your models here.
@@ -13,6 +14,9 @@ class Band(models.Model):
     def average_member_age(self):
         agg_qs = self.members.aggregate(average_age=Avg('age'))
         return agg_qs['average_age']
+
+    def get_url(self):
+        return reverse('band-detail', args=[self.pk])
 
 
 class Member(models.Model):

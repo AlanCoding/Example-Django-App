@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic.detail import DetailView
 from django.views.generic import ListView
 from django.db.models import Avg
+from django.shortcuts import get_object_or_404
 
 from rockband import models
 
@@ -14,7 +15,7 @@ def band_listing(request):
 
 
 # def band_detail(request, d):
-#     band = models.Band.objects.get(pk=d)
+#     band = get_object_or_404(Band, pk=d)
 #     return render(request, 'bands/band_detail.html', {'band': band})
 
 

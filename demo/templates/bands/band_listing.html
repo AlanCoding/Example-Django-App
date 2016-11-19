@@ -1,21 +1,16 @@
-<html>
-  <head>
-    <title>Band Listing</title>
-  </head>
-  <body>
-    <h1>All Bands</h1>
-    <ul>
-    {% for band in bands %}
-      <li>
-        <h2><a href="{{ band.get_absolute_url }}">{{ band.name }}</a></h2>
-        {% if band.can_rock %}<p>This band can rock!</p>{% endif %}
-      </li>
-    {% endfor %}
-    {% if is_paginated %}
-    <br />
-    Pagination - There are more bands on other pages!
-    <br />
-    {% endif %}
-    </ul>
-  </body>
-</html>
+{% extends "bands/base.html" %}
+
+{% block rockband_page_contents %}
+<h1>All Bands</h1>
+<ul>
+{% for band in bands %}
+  <li>
+    <h2><a href="{{ band.get_url }}">{{ band.name }}</a></h2>
+    {% if band.can_rock %}<p>This band can rock!</p>{% endif %}
+  </li>
+{% endfor %}
+{% if is_paginated %}
+<br />Pagination - There are more bands on other pages!<br />
+{% endif %}
+</ul>
+{% endblock %}

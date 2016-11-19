@@ -1,14 +1,19 @@
-<html>
-  <head>
-    <title>Band Listing</title>
-  </head>
-  <body>
-    <h1>All Bands</h1>
-    <ul>
-      <li>
-        <h2><a href="{{ band.get_absolute_url }}">{{ band.name }}</a></h2>
-        {% if band.can_rock %}<p>This band can rock!</p>{% endif %}
-      </li>
-    </ul>
-  </body>
-</html>
+{% extends "bands/base.html" %}
+
+{% block rockband_page_contents %}
+<h1>Band Detail Page</h1>
+<ul>
+  <li>
+    <h2><a href="{{ band.get_url }}">{{ band.name }}</a></h2>
+    {% if band.can_rock %}<p>This band can rock!</p>{% endif %}
+  </li>
+</ul>
+
+<h2>Band Member List</h2>
+<ul>
+    {% for member in band.members.all %}
+    <li>{{ member.name }} plays the {{ member.instrument }}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
