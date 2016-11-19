@@ -10,7 +10,18 @@
   </li>
 {% endfor %}
 {% if is_paginated %}
-<br />Pagination - There are more bands on other pages!<br />
+    <p>Showing bands {{ page_obj.start_index }} to {{ page_obj.end_index }}
+        out of {{ bands.count }} bands in total</p>
+    {% if page_obj.has_previous %}
+        <p>Last Page: <a href="?page={{ page_obj.previous_page_number }}">
+            {{ page_obj.previous_page_number }}</a></p>
+    {% endif %}
+    {% if page_obj.has_next %}
+        <p>Next Page: <a href="?page={{ page_obj.next_page_number }}">
+            {{ page_obj.next_page_number }}</a></p>
+    {% endif %}
+{% else %}
+    <p>Showing all {{ bands.count }} bands
 {% endif %}
 </ul>
 {% endblock %}
