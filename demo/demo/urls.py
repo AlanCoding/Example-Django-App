@@ -20,13 +20,16 @@ from django.views.generic import TemplateView
 import debug_toolbar
 
 from rockband import rocking_urls
+# from movies import urls as movie_urls
 
 urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name="index.html")),
     url(r'^admin/', admin.site.urls),
     # Rock band urls
     url(r'^bands/', include(rocking_urls)),
-    # url(r'$mv/', mo)
+    # url(r'$movies/', include(movie_urls))
+    # Django auth views
+    url('^', include('django.contrib.auth.urls')),
 ]
 
 # For the debug toolbar
