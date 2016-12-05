@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'demo', # my default app
     'rockband', # an addon app I created
     'movies',
+    'async',
     'django.contrib.admin', # special administration pages from Django
     'django.contrib.auth', # user authentication
     'django.contrib.contenttypes', # these get weird
@@ -120,3 +121,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# CELERY STUFF
+# https://realpython.com/blog/python/asynchronous-tasks-with-django-and-celery/
+BROKER_URL = 'redis://localhost:6379'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'Africa/Nairobi'
+
